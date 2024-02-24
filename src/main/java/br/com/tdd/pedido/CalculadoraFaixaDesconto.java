@@ -9,16 +9,17 @@ public abstract class CalculadoraFaixaDesconto {
 		this.proximo = proximo;
 	}
 	
-	public BigDecimal desconto(BigDecimal valorTotal) {
-		BigDecimal desconto = calcular(valorTotal);
+	public double desconto(BigDecimal valorTotal) {
+		double desconto = calcular(valorTotal);
 		
-		if(valorTotal.doubleValue() == -1) 
+		if(desconto == -1.0) {
 			return proximo.desconto(valorTotal);
+		}
 		
 		return desconto;
 	}
 
-	protected abstract BigDecimal calcular(BigDecimal valorTotal);
+	protected abstract double calcular(BigDecimal valorTotal);
 	
 	
 }

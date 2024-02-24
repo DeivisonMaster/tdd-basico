@@ -28,18 +28,18 @@ public class Pedido {
 	}
 
 	public BigDecimal desconto() {
-//		if(valorTotal.compareTo(new BigDecimal("300.00")) > 0 && valorTotal.compareTo(new BigDecimal("800.00")) < 0) {
-//			desconto = BigDecimal.valueOf(valorTotal.doubleValue() * 0.04);
-//		} else if(valorTotal.compareTo(new BigDecimal("800.0")) > 0 && valorTotal.compareTo(new BigDecimal("1000.0")) < 0) {
-//			desconto = BigDecimal.valueOf(valorTotal.doubleValue() * 0.06);
-//		} else if(valorTotal.compareTo(new BigDecimal("1000.0")) > 0) {
-//			desconto = BigDecimal.valueOf(valorTotal.doubleValue() * 0.08);
-//		} else {
-//			desconto = BigDecimal.ZERO;
-//		}
-//		return desconto;
+		if(valorTotal.compareTo(new BigDecimal("300.00")) > 0 && valorTotal.compareTo(new BigDecimal("800.00")) < 0) {
+			desconto = BigDecimal.valueOf(valorTotal.doubleValue() * 0.04);
+		} else if(valorTotal.compareTo(new BigDecimal("800.0")) > 0 && valorTotal.compareTo(new BigDecimal("1000.0")) < 0) {
+			desconto = BigDecimal.valueOf(valorTotal.doubleValue() * 0.06);
+		} else if(valorTotal.compareTo(new BigDecimal("1000.0")) > 0) {
+			desconto = BigDecimal.valueOf(valorTotal.doubleValue() * 0.08);
+		} else {
+			desconto = BigDecimal.ZERO;
+		}
+		return desconto;
 		
-		return calculadoraFaixaDesconto.calcular(valorTotal);
+//		return BigDecimal.valueOf(calculadoraFaixaDesconto.calcular(valorTotal));
 	}
 
 }

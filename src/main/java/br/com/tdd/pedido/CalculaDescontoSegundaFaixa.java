@@ -9,11 +9,11 @@ public class CalculaDescontoSegundaFaixa extends CalculadoraFaixaDesconto{
 	}
 
 	@Override
-	protected BigDecimal calcular(BigDecimal valorTotal) {
+	protected double calcular(BigDecimal valorTotal) {
 		if(valorTotal.compareTo(new BigDecimal("800.0")) > 0 && valorTotal.compareTo(new BigDecimal("1000.0")) < 0)
-			return BigDecimal.valueOf(valorTotal.doubleValue() * 0.06);
+			return valorTotal.doubleValue() * 0.06;
 		
-		return new BigDecimal("-1");
+		return -1;
 	}
 
 }

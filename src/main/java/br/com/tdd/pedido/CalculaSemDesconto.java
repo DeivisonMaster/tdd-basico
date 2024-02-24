@@ -9,8 +9,8 @@ public class CalculaSemDesconto extends CalculadoraFaixaDesconto{
 	}
 
 	@Override
-	protected BigDecimal calcular(BigDecimal valorTotal) {
-		return BigDecimal.ZERO;
+	protected double calcular(BigDecimal valorTotal) {
+		return BigDecimal.ZERO.doubleValue();
 	}
 
 }
