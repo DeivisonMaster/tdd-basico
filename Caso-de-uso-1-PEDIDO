@@ -2,6 +2,8 @@ SISTEMA: Pedido e Itens de Pedido
 
 Regras de desconto:
 
+* Descontos ofertados a partir de R$ 300,00
+
 - se o valor passar de R$ 300,00 tem 4% de desconto
 - se o valor passar de R$ 800,00 tem 6% de desconto
 - se o valor passar de R$ 1000,00 tem 8% de desconto
