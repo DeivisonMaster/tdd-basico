@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.tdd.pedido.excecoes.QuantidadeItemNegativoException;
+
 public class Pedido {
 	private BigDecimal valorTotal = BigDecimal.ZERO;
 	private BigDecimal desconto = BigDecimal.ZERO;
@@ -15,6 +17,9 @@ public class Pedido {
 	}
 
 	public void adicionaItem(Item item) {
+		if(item.getQuantidade() < 0) {
+			throw new QuantidadeItemNegativoException("Não é possivel adicionar item com quantidade negativa!");
+		}
 		itens.add(item);
 	}
 

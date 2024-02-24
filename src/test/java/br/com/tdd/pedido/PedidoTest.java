@@ -7,6 +7,8 @@ import java.math.BigDecimal;
 import org.junit.Before;
 import org.junit.Test;
 
+import br.com.tdd.pedido.excecoes.QuantidadeItemNegativoException;
+
 public class PedidoTest {
 	private PedidoBuilder pedidoBuilder;
 	
@@ -77,4 +79,19 @@ public class PedidoTest {
 		assertEquals(new BigDecimal("96.0"), pedidoBuilder.desconto());
 	}
 	
+	@Test(expected = QuantidadeItemNegativoException.class)
+	public void naoDeveAceitarPedidosComItensComQuantidadesNegativas() {
+		pedidoBuilder.comItem("Desodorante", new BigDecimal("4.00"), -11);
+	}
+	
+	@Test
+	public void deveValidarMensagemErroDeItemComQuantidadeNegativa() {
+		try {
+			pedidoBuilder.comItem("Esponja", new BigDecimal("3.50"), -3);
+			fail("Deveria ter lançado a exception QuantidadeItensInvalidaException");
+			
+		} catch (QuantidadeItemNegativoException e) {
+			assertEquals("Não é possivel adicionar item com quantidade negativa!", e.getMessage());
+		}
+	}
 }
